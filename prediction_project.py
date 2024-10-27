@@ -42,3 +42,5 @@ def predict_species(img_path):
 
 species=predict_species('/kaggle/input/animals-detection-images-dataset/test/Butterfly/00b34a3601c1398a.jpg')
 print(f'This image is predicted to be: {species}')
+
+
