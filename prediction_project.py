@@ -21,7 +21,7 @@ layers.Conv2D(128,(3,3), activation='relu'),layers.MaxPooling2D(pool_size=(2,2))
 layers.Flatten(),layers.Dense(128, activation='relu'),
 layers.Dense(len(train_generator.class_indices),activation='softmax')])
               
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])     
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])      
 
 history = model.fit(train_generator, steps_per_epoch=train_generator.samples//batch_size,
 validation_data=validation_generator, validation_steps=validation_generator.samples//batch_size,
@@ -40,5 +40,5 @@ def predict_species(img_path):
     class_index=np.argmax(predictions)
     return list(train_generator.class_indices.keys())[class_index]
 
-species=predict_species('/kaggle/input/elephant-photo/pexels-hsapir-1054655.jpg')
+species=predict_species('/kaggle/input/animals-detection-images-dataset/test/Butterfly/00b34a3601c1398a.jpg')
 print(f'This image is predicted to be: {species}')
